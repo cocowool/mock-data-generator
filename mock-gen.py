@@ -5,6 +5,13 @@
 # Zhang 32   11  24    Female
 # https://mockaroo.com
 
+# Usage 使用介绍
+# python3 dataset-generator.py resultType length range 
+# Goal 1: 支持生成一维数字型数组
+
 import numpy as numpy
 from numpy import random
+
+def if __name__ == "__main__":
+    pass
 
