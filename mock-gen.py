@@ -8,6 +8,7 @@
 # Usage 使用介绍
 # python3 dataset-generator.py resultType length range 
 # Goal 1: 支持生成一维数字型数组
+# Goal 2: 将输出改成JSON格式，对一维数组输出统计指标，包括平均值、方差、最小值、最大值
 
 import os,sys,getopt
 import numpy as np
