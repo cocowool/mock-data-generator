@@ -11,6 +11,7 @@
 # Goal 2: 将输出改成JSON格式，对一维数组输出统计指标，包括平均值、方差、最小值、最大值
 
 import os,sys,getopt
+import time, datetime
 import numpy as np
 from numpy import random
 
@@ -36,7 +37,23 @@ def main(argv):
         elif opt in ("-n", "--range"):
             range = int(arg)
 
-    print( get_random_list(length, range) )
+    # print( get_random_list(length, range) )
+    generator_apm_log()
+
+#生成APM格式的日志
+def generator_apm_log():
+    filename = "apm_test_log.txt"
+
+    with open(filename,"w") as f:
+        try:
+            while True:
+                user_str = str(time.time())
+                f.writelines(user_str)
+        except KeyboardInterrupt:
+            f.close()
+            sys.exit()
+
+    return True
 
 def get_random_list(length, max):
     i = 0
