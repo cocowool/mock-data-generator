@@ -12,6 +12,7 @@
 
 import os,sys,getopt
 import time, datetime
+import threading
 import numpy as np
 from numpy import random
 
@@ -44,11 +45,17 @@ def main(argv):
 def generator_apm_log():
     filename = "apm_test_log.txt"
 
+
+
     with open(filename,"w") as f:
         try:
-            while True:
-                user_str = str(time.time())
-                f.writelines(user_str)
+            i = 0
+            user_str = ""
+            while i < 10:
+                user_str += str(time.ctime()) + " <sys> <id> \n"
+                i = i + 1
+            f.writelines(user_str)
+            threading.Timer(10, generator_apm_log).start()
         except KeyboardInterrupt:
             f.close()
             sys.exit()
