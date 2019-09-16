@@ -1,3 +1,4 @@
+# coding=UTF-8
 # Dataset 测试数据生成脚本
 # 二维数据格式
 # Col1 Col2 Col3 Col4 Col5
@@ -13,8 +14,8 @@
 import os,sys,getopt
 import time, datetime
 import threading
-import numpy as np
-from numpy import random
+# import numpy as np
+# from numpy import random
 
 # 入口函数，第一个版本支持生成一维数字型数组
 def main(argv):
@@ -47,7 +48,7 @@ def generator_apm_log():
 
 
 
-    with open(filename,"w") as f:
+    with open(filename,"a+") as f:
         try:
             i = 0
             user_str = ""
@@ -55,7 +56,7 @@ def generator_apm_log():
                 user_str += str(time.ctime()) + " <sys> <id> \n"
                 i = i + 1
             f.writelines(user_str)
-            threading.Timer(10, generator_apm_log).start()
+            threading.Timer(0.01, generator_apm_log).start()
         except KeyboardInterrupt:
             f.close()
             sys.exit()
